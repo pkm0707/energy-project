@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
 export function EEE() {
   const navigate = useNavigate();
   const data = [
@@ -60,40 +59,42 @@ export function EEE() {
   ];
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 25,
-      }}
-    >
-      {data.map((item, index) => {
-        return (
-          <Card>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image={item.image}
-                alt={item.name}
-                onClick={() => navigate(item.navigation)}
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="p"
-                  component="div"
-                  sx={{ fontWeight: "bold" }}
-                >
-                  {item.name}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        );
-      })}
+    <div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 25,
+        }}
+      >
+        {data.map((item, index) => {
+          return (
+            <Card>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={item.image}
+                  alt={item.name}
+                  onClick={() => navigate(item.navigation)}
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="p"
+                    component="div"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    {item.name}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -4,6 +4,8 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
+import Footer from "./Footer";
+import SpeedeDial from "./SpeedDial";
 
 export function View() {
   const navigate = useNavigate();
@@ -94,7 +96,7 @@ export function View() {
     },
     {
       url: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGh5c2ljc3xlbnwwfHwwfHx8MA%3D%3D",
-      title: "Phys-dept",
+      title: "Physics-department",
       width: "30%",
       navigate: "/physics",
     },
@@ -206,6 +208,8 @@ export function View() {
           </ImageButton>
         ))}
       </Box>
+      <Footer/>
+      <SpeedeDial/>
     </div>
   );
 }
