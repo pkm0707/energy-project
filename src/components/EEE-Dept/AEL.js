@@ -2,7 +2,7 @@ import * as React from "react";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { LineChart } from "@mui/x-charts/LineChart";
-
+import GaugeChart from "react-gauge-chart";
 export function AEL() {
   const worldElectricityProduction = [
     {
@@ -536,7 +536,7 @@ export function AEL() {
     margin: { top: 5 },
     stackingOrder: "descending",
   };
-  
+
   return (
     <div
       style={{
@@ -544,7 +544,9 @@ export function AEL() {
         flexWrap: "wrap",
         justifyContent: "center",
         alignItems: "center",
+        gap: 20,
       }}
+      className="background"
     >
       <PieChart
         series={[
@@ -558,12 +560,14 @@ export function AEL() {
         ]}
         width={400}
         height={200}
+        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
       />
       <BarChart
         xAxis={[{ scaleType: "band", data: ["group A", "group B", "group C"] }]}
         series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
         width={500}
         height={300}
+        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
       />
       <LineChart
         xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
@@ -574,6 +578,15 @@ export function AEL() {
         ]}
         width={500}
         height={300}
+        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
+      />
+      <GaugeChart id="gauge-chart2" nrOfLevels={20} percent={0.86} />
+      <GaugeChart
+        id="gauge-chart3"
+        nrOfLevels={30}
+        colors={["#FF5F6D", "#FFC371"]}
+        arcWidth={0.3}
+        percent={0.37}
       />
       <LineChart
         xAxis={[
@@ -593,6 +606,7 @@ export function AEL() {
         }))}
         dataset={worldElectricityProduction}
         {...customize}
+        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
       />
     </div>
   );
