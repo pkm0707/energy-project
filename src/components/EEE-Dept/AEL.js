@@ -553,7 +553,7 @@ export function AEL() {
         nrOfLevels={20}
         percent={1}
         textColor="red"
-        style={{ width: 810,border:"4px solid red"}}
+        style={{ width: 810, border: "4px solid red" }}
       />
       <GaugeChart
         id="gauge-chart3"
@@ -562,7 +562,7 @@ export function AEL() {
         textColor="orange"
         arcWidth={0.3}
         percent={0.37}
-        style={{ width: 810,border:"4px solid orange"}}
+        style={{ width: 810, border: "4px solid orange" }}
       />
       <LineChart
         xAxis={[
@@ -582,14 +582,14 @@ export function AEL() {
         }))}
         dataset={worldElectricityProduction}
         {...customize}
-        sx={{ padding: 2 ,border:4,borderColor:"darkviolet"}}
+        sx={{ padding: 2, border: 4, borderColor: "darkviolet" }}
       />
       <BarChart
         xAxis={[{ scaleType: "band", data: ["group A", "group B", "group C"] }]}
         series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
         width={500}
         height={300}
-        sx={{padding: 1,border:4,borderColor:"darkgreen" }}
+        sx={{ padding: 1, border: 4, borderColor: "darkgreen" }}
       />
       <PieChart
         series={[
@@ -603,7 +603,19 @@ export function AEL() {
         ]}
         width={500}
         height={300}
-        sx={{padding: 1,border:4,borderColor:"darkturquoise" }}
+        sx={{ padding: 1, border: 4, borderColor: "darkturquoise" }}
+      />
+      <LineChart
+        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+        series={[
+          {
+            data: [2, 5.5, 2, 8.5, 1.5, 5],
+            area: true,
+          },
+        ]}
+        width={500}
+        height={300}
+        sx={{ opacity: 0.4 }}
       />
     </div>
   );
