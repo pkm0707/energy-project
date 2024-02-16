@@ -544,49 +544,25 @@ export function AEL() {
         flexWrap: "wrap",
         justifyContent: "center",
         alignItems: "center",
-        gap: 20,
+        gap: 18,
       }}
       className="background"
     >
-      <PieChart
-        series={[
-          {
-            data: [
-              { id: 0, value: 10, label: "series A" },
-              { id: 1, value: 15, label: "series B" },
-              { id: 2, value: 20, label: "series C" },
-            ],
-          },
-        ]}
-        width={400}
-        height={200}
-        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
+      <GaugeChart
+        id="gauge-chart2"
+        nrOfLevels={20}
+        percent={1}
+        textColor="red"
+        style={{ width: 810,border:"4px solid red"}}
       />
-      <BarChart
-        xAxis={[{ scaleType: "band", data: ["group A", "group B", "group C"] }]}
-        series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
-        width={500}
-        height={300}
-        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
-      />
-      <LineChart
-        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-        series={[
-          {
-            data: [2, 5.5, 2, 8.5, 1.5, 5],
-          },
-        ]}
-        width={500}
-        height={300}
-        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
-      />
-      <GaugeChart id="gauge-chart2" nrOfLevels={20} percent={0.86} />
       <GaugeChart
         id="gauge-chart3"
         nrOfLevels={30}
         colors={["#FF5F6D", "#FFC371"]}
+        textColor="orange"
         arcWidth={0.3}
         percent={0.37}
+        style={{ width: 810,border:"4px solid orange"}}
       />
       <LineChart
         xAxis={[
@@ -606,7 +582,28 @@ export function AEL() {
         }))}
         dataset={worldElectricityProduction}
         {...customize}
-        sx={{ backgroundColor: "lightgray", borderRadius: 10, padding: 1 }}
+        sx={{ padding: 2 ,border:4,borderColor:"darkviolet"}}
+      />
+      <BarChart
+        xAxis={[{ scaleType: "band", data: ["group A", "group B", "group C"] }]}
+        series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
+        width={500}
+        height={300}
+        sx={{padding: 1,border:4,borderColor:"darkgreen" }}
+      />
+      <PieChart
+        series={[
+          {
+            data: [
+              { id: 0, value: 10, label: "series A" },
+              { id: 1, value: 15, label: "series B" },
+              { id: 2, value: 20, label: "series C" },
+            ],
+          },
+        ]}
+        width={500}
+        height={300}
+        sx={{padding: 1,border:4,borderColor:"darkturquoise" }}
       />
     </div>
   );

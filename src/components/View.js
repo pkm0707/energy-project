@@ -176,6 +176,7 @@ export function View() {
           gap:3,
           minWidth: 150,
           width: "100%",
+          padding:2
         }}
       >
         {images.map((image) => (
@@ -198,7 +199,7 @@ export function View() {
                   p: 4,
                   pt: 2,
                   pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                  fontWeight:"bolder"
+                  fontWeight:"bolder",
                 }}
                 onClick={() => navigate(image.navigate)}
               >

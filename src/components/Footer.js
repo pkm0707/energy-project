@@ -29,22 +29,22 @@ export default function Footer() {
           setValue(newValue);
         }}
       >
-        <a href="https://www.tce.edu/">
+        <a href="https://www.tce.edu/" target="_blank" rel="noreferrer">
           <BottomNavigationAction title="Official TCE Page" icon={<SchoolIcon />} />
         </a>
-        <a href="https://www.instagram.com/tce_madurai/">
+        <a href="https://www.instagram.com/tce_madurai/" target="_blank" rel="noreferrer">
           <BottomNavigationAction title="Instagram" icon={<InstagramIcon />} />
         </a>
-        <a href="https://twitter.com/tceofficialpage">
+        <a href="https://twitter.com/tceofficialpage" target="_blank" rel="noreferrer">
           <BottomNavigationAction title="Twitter" icon={<XIcon />} />
         </a>
-        <a href="https://www.linkedin.com/in/tcemadurai">
+        <a href="https://www.linkedin.com/in/tcemadurai" target="_blank" rel="noreferrer">
           <BottomNavigationAction title="LinkedIn" icon={<LinkedInIcon />} />
         </a>
-        <a href="https://www.facebook.com/TheOfficialTCEPage">
+        <a href="https://www.facebook.com/TheOfficialTCEPage" target="_blank" rel="noreferrer">
           <BottomNavigationAction title="Facebook" icon={<FacebookIcon />} />
         </a>
-        <a href="https://www.youtube.com/ThiagarajarCollegeofEngineeringTCE">
+        <a href="https://www.youtube.com/ThiagarajarCollegeofEngineeringTCE" target="_blank" rel="noreferrer">
           <BottomNavigationAction title="Youtube" icon={<YouTubeIcon />} />
         </a>
       </BottomNavigation>

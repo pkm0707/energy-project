@@ -17,7 +17,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { FcContacts } from "react-icons/fc";
 import { FcAbout } from "react-icons/fc";
 import { SlEnergy } from "react-icons/sl";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -31,7 +30,6 @@ import { useNavigate } from "react-router-dom";
 import { FaDatabase } from "react-icons/fa6";
 import { GiElectric } from "react-icons/gi";
 import { Route, Routes } from "react-router-dom";
-import { Contact } from "./components/Contact";
 import { About } from "./components/About";
 import { View } from "./components/View";
 import { EEE } from "./components/EEE";
@@ -133,7 +131,8 @@ function App() {
                 variant="h6"
                 noWrap
                 component="div"
-                sx={{ fontFamily: "monospace" }}
+                sx={{ fontFamily: "monospace",cursor:"pointer" }}
+                onClick={()=>navigate("/")}
               >
                 Day Ahead Energy Trend
               </Typography>
@@ -179,14 +178,6 @@ function App() {
                   <ListItemText primary="About" />
                 </ListItemButton>
               </ListItem>
-              <ListItem>
-                <ListItemButton onClick={()=>navigate("/contact")}>
-                  <ListItemIcon>
-                    <FcContacts size={25} />
-                  </ListItemIcon>
-                  <ListItemText primary="Contact Us" />
-                </ListItemButton>
-              </ListItem>
             </List>
             <Divider />
             <List
@@ -224,7 +215,6 @@ function App() {
             <Routes>
               <Route path="/" element={<View/>} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
               {/* EEE-Department */}
               <Route path="/eee-dept" element={<EEE/>} />
               <Route path="/app-elec-lab" element={<AEL/>} />
