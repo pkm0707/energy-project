@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { LineChart } from "@mui/x-charts/LineChart";
+import { PieChart } from '@mui/x-charts/PieChart';
 import GaugeChart from "react-gauge-chart";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +40,7 @@ export function CSL() {
             { data: uData, label: "uv" },
           ]}
           xAxis={[{ scaleType: "point", data: xLabels }]}
-          colors={["red","orange"]}
+          colors={["red", "orange"]}
           sx={{
             padding: 1,
             border: 4,
@@ -94,12 +95,36 @@ export function CSL() {
             },
           ]}
           series={[
-            { data: [4, 3, 5, 7, 2, 6, 8, 9, 10, 11, 2, 12, 4, 6, 8, 9, 3, 8, 1, 4, 5, 10, 9, 7, 3] },
-            { data: [1, 6, 2, 6, 8, 9, 10, 11, 2, 12, 4, 3, 5, 7, 2, 6, 8, 9, 1, 5, 7, 8, 3, 2, 10 ] },
+            {
+              data: [
+                4, 3, 5, 7, 2, 6, 8, 9, 10, 11, 2, 12, 4, 6, 8, 9, 3, 8, 1, 4,
+                5, 10, 9, 7, 3,
+              ],
+            },
+            {
+              data: [
+                1, 6, 2, 6, 8, 9, 10, 11, 2, 12, 4, 3, 5, 7, 2, 6, 8, 9, 1, 5,
+                7, 8, 3, 2, 10,
+              ],
+            },
           ]}
-          width={1000}
+          width={602}
           height={300}
           sx={{ padding: 1, border: 4, borderColor: "darkgreen" }}
+        />
+        <PieChart
+          series={[
+            {
+              data: [
+                { id: 0, value: 10, label: "series A" },
+                { id: 1, value: 15, label: "series B" },
+                { id: 2, value: 20, label: "series C" },
+              ],
+            },
+          ]}
+          width={500}
+          height={300}
+          sx={{ padding: 1, border: 4, borderColor:"darkturquoise" }}
         />
         <GaugeChart
           id="gauge-chart3"
@@ -125,11 +150,20 @@ export function CSL() {
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "center",
-          gap:10
+          gap: 10,
         }}
       >
-        <a href="https://metamask.io/" target="_blank" rel="noreferrer" title="Pay for Control System Lab"><Button variant="contained">Make a Payment</Button></a>
-        <Button variant="contained" onClick={()=>navigate(-1)}>Back</Button>
+        <a
+          href="https://metamask.io/"
+          target="_blank"
+          rel="noreferrer"
+          title="Pay for Control System Lab"
+        >
+          <Button variant="contained">Make a Payment</Button>
+        </a>
+        <Button variant="contained" onClick={() => navigate(-1)}>
+          Back
+        </Button>
       </div>
     </div>
   );
