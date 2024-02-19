@@ -3,14 +3,12 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InfoIcon from "@mui/icons-material/Info";
-import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 
 const worldElectricityProduction = [
   {
@@ -545,25 +543,6 @@ const customize = {
   margin: { top: 5 },
   stackingOrder: "descending",
 };
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -600,7 +579,8 @@ export default function EEEView() {
         dataset={worldElectricityProduction}
         {...customize}
         height={500}
-      />
+        sx={{border:4,borderColor:"darkgoldenrod",padding:1}}
+      /><br/>
       <div
         style={{
           display: "flex",
@@ -619,33 +599,72 @@ export default function EEEView() {
         <Button variant="contained" onClick={() => navigate(-1)}>
           Back
         </Button>
-      </div><br/>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-              <StyledTableCell align="center">Calories</StyledTableCell>
-              <StyledTableCell align="center">Fat&nbsp;(g)</StyledTableCell>
-              <StyledTableCell align="center">Carbs&nbsp;(g)</StyledTableCell>
-              <StyledTableCell align="center">Protein&nbsp;(g)</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
-                </StyledTableCell>
-                <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                <StyledTableCell align="center">{row.protein}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      </div>
+      <br />
+      <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",alignItems:"center"}}>
+        <div>
+          <TableContainer>
+            <Table sx={{ width: 600 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Dessert (100g serving)</TableCell>
+                  <TableCell align="right">Calories</TableCell>
+                  <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                  <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                  <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell align="right">{row.calories}</TableCell>
+                    <TableCell align="right">{row.fat}</TableCell>
+                    <TableCell align="right">{row.carbs}</TableCell>
+                    <TableCell align="right">{row.protein}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+        <div>
+          <TableContainer>
+            <Table sx={{ width: 600 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Dessert (100g serving)</TableCell>
+                  <TableCell align="right">Calories</TableCell>
+                  <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                  <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                  <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell align="right">{row.calories}</TableCell>
+                    <TableCell align="right">{row.fat}</TableCell>
+                    <TableCell align="right">{row.carbs}</TableCell>
+                    <TableCell align="right">{row.protein}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </div>
     </div>
   );
 }
