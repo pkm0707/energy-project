@@ -41,6 +41,7 @@ import { ESL } from "./components/EEE-Dept/ESL";
 import { PEL } from "./components/EEE-Dept/PEL";
 import { PL } from "./components/EEE-Dept/PL";
 import { SAL } from "./components/EEE-Dept/SAL";
+import EEEView from "./components/EEEView";
 
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -198,7 +199,7 @@ function App() {
                   <ListItemButton
                     sx={{ pl: 4 }}
                     onClick={() => {
-                      navigate("/eee-dept");
+                      navigate("/eee-view");
                     }}
                   >
                     <ListItemIcon>
@@ -216,6 +217,7 @@ function App() {
               <Route path="/" element={<View/>} />
               <Route path="/about" element={<About />} />
               {/* EEE-Department */}
+              <Route path="/eee-view" element={<EEEView/>} />
               <Route path="/eee-dept" element={<EEE/>} />
               <Route path="/app-elec-lab" element={<AEL/>} />
               <Route path="/elec-mach-lab" element={<EML/>} />

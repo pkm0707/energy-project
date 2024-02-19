@@ -8,9 +8,9 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const actions = [
-  { icon: <MailIcon />, name: 'Gmail' },
-  { icon: <WhatsAppIcon />, name: 'Whatsapp' },
-  { icon: <LocalPhoneIcon />, name: 'Contact' },
+  { icon: <MailIcon />, name: "Gmail"},
+  { icon: <WhatsAppIcon />, name: "Whatsapp"},
+  { icon: <LocalPhoneIcon />, name: "Contact"},
 ];
 
 export default function SpeedeDial() {

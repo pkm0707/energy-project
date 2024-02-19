@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
+
 export function EEE() {
   const navigate = useNavigate();
   const images = [
