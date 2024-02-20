@@ -168,8 +168,9 @@ export function EEE() {
             </ImageButton>
           ))}
         </Box>
-        <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center"}}>
-          <a href="https://metamask.io/" target="_blank" rel="noreferrer" title="It will Navigate to MetaMask official Page, Please try to install the MetaMask for Make a Payment !"><Button variant="contained">Make a Payment</Button></a><br/><br/>
+        <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",gap:5}}>
+          <a href="https://metamask.io/" target="_blank" rel="noreferrer" title="It will Navigate to MetaMask official Page, Please try to install the MetaMask for Make a Payment !"><Button variant="contained">Make a Payment</Button></a><br/>
+          <Button variant="contained" onClick={()=>navigate(-1)}>Back</Button>
         </div>
       </div>
     </div>
