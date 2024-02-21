@@ -18,7 +18,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { FcAbout } from "react-icons/fc";
-import { SlEnergy } from "react-icons/sl";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -42,6 +41,7 @@ import { PEL } from "./components/EEE-Dept/PEL";
 import { PL } from "./components/EEE-Dept/PL";
 import { SAL } from "./components/EEE-Dept/SAL";
 import EEEView from "./components/EEEView";
+import { Calculate } from "./components/Calculate";
 
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -137,9 +137,6 @@ function App() {
               >
                 Day Ahead Energy Trend
               </Typography>
-              <IconButton onClick={()=>navigate("/")}>
-                <SlEnergy color="yellow" />
-              </IconButton>
             </Toolbar>
           </AppBar>
           <Drawer
@@ -227,6 +224,7 @@ function App() {
               <Route path="/pow-elec-lab" element={<PEL/>} />
               <Route path="/proj-lab" element={<PL/>} />
               <Route path="/sim-auto-lab" element={<SAL/>} />
+              <Route path="/calculate" element={<Calculate/>} />
             </Routes>
           </Main>
         </Box>
