@@ -1,10 +1,10 @@
 import * as React from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { PieChart } from "@mui/x-charts/PieChart";
 import GaugeChart from "react-gauge-chart";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { PieChart } from "@mui/x-charts/PieChart";
 
 const AEL_actual_values = [
   1.25, 0.72, 2.43, 5.31, 3.82, 1.45, 1.83, 5.7, 6.99, 7.36, 7.059999999999999,
@@ -324,52 +324,44 @@ export function AEL() {
                 "11:00",
                 "12:00",
                 "13:00",
-                "14:00",
-                "15:00",
-                "16:00",
-                "17:00",
-                "18:00",
-                "19:00",
-                "20:00",
-                "21:00",
-                "22:00",
-                "23:00",
-                "24:00",
               ],
             },
           ]}
           series={[
             {
               data: [
-                4, 3, 5, 7, 2, 6, 8, 9, 10, 11, 2, 12, 4, 6, 8, 9, 3, 8, 1, 4,
-                5, 10, 9, 7, 3,
+                368.825625, 522.605925, 499.7133, 411.9219, 152.6175,
+                635.542875, 994.0104, 892.4796, 879.444, 957.2904, 948.753,
+                797.13, 683.757, 922.8195,
               ],
             },
             {
               data: [
-                1, 6, 2, 6, 8, 9, 10, 11, 2, 12, 4, 3, 5, 7, 2, 6, 8, 9, 1, 5,
-                7, 8, 3, 2, 10,
-              ],
-            },
-          ]}
-          width={602}
-          height={300}
-          colors={["red","yellow"]}
-          sx={{ padding: 1, border: 4, borderColor: "darkgreen" }}
-        />
-        <PieChart
-          series={[
-            {
-              data: [
-                { id: 0, value: 10, label: "series A" },
-                { id: 1, value: 15, label: "series B" },
-                { id: 2, value: 20, label: "series C" },
+                541.8723371, 541.8215344, 498.1247975, 416.7822499, 351.3391908,
+                714.0101488, 949.1092042, 819.7130521, 895.5456548, 969.7624269,
+                994.8147057, 674.8377327, 866.3551216, 948.006207,
               ],
             },
           ]}
           width={500}
           height={300}
-          sx={{ padding: 1, border: 4, borderColor: "darkturquoise" }}
+          colors={["red", "yellow"]}
+          sx={{ padding: 1, border: 4, borderColor: "darkgreen" }}
+        />
+
+        <PieChart
+          series={[
+            {
+              data: [
+                { id: 0, value: 427.3521, label: "Total KWh" },
+                { id: 1, value: 146.837, label: "PE KWh" },
+              ],
+            },
+          ]}
+          width={500}
+          height={300}
+          sx={{border:3,padding:2,borderColor:"violet"}}
+          colors={["#00A4CCFF","#D6ED17FF"]}
         />
         <GaugeChart
           id="gauge-chart3"
