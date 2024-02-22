@@ -335,9 +335,22 @@ export function AEL() {
       clearInterval(id3);
     };
   });
-
+  const [date, setDate] = useState(new Date());
+  console.log(setDate)
+  
   return (
     <div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          color: "red",
+        }}
+      >
+        <h5>Current Date: {date.toLocaleString()}</h5>
+      </div>
       <div
         style={{
           display: "flex",
@@ -400,7 +413,7 @@ export function AEL() {
         </div>
 
         <BarChart
-          yAxis={[{ label: "Cost(₹)"}]}
+          yAxis={[{ label: "Cost(₹)" }]}
           xAxis={[
             {
               scaleType: "band",

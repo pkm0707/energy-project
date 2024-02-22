@@ -167,16 +167,23 @@ export function View() {
   }));
   return (
     <div>
+      <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",marginBottom:20}}>
+        <img
+          src="https://www.tce.edu/themes/gavias_edmix/logo.svg"
+          alt="tce logo"
+          height={80}
+        />
+      </div>
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent:"center",
-          alignItems:"center",
-          gap:3,
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 3,
           minWidth: 150,
           width: "100%",
-          padding:2
+          padding: 2,
         }}
       >
         {images.map((image) => (
@@ -199,7 +206,7 @@ export function View() {
                   p: 4,
                   pt: 2,
                   pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                  fontWeight:"bolder",
+                  fontWeight: "bolder",
                 }}
                 onClick={() => navigate(image.navigate)}
               >
@@ -210,8 +217,8 @@ export function View() {
           </ImageButton>
         ))}
       </Box>
-      <Footer/>
-      <SpeedeDial/>
+      <Footer />
+      <SpeedeDial />
     </div>
   );
 }

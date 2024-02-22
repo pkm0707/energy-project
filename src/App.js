@@ -137,6 +137,7 @@ function App() {
               >
                 Day Ahead Energy Trend
               </Typography>
+              <img src="https://upload.wikimedia.org/wikipedia/en/3/32/Thiagarajar_College_of_Engineering_logo.png" alt="tce-logo" style={{width:50,marginLeft:15,cursor:"pointer"}} onClick={()=>navigate("/")}/>
             </Toolbar>
           </AppBar>
           <Drawer

@@ -3,7 +3,8 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InfoIcon from "@mui/icons-material/Info";
-import CalculateIcon from '@mui/icons-material/Calculate';
+import CalculateIcon from "@mui/icons-material/Calculate";
+import { useState} from "react";
 
 const AEL = [
   "0.09",
@@ -2725,8 +2726,13 @@ const xLabels = [
 
 export default function EEEView() {
   const navigate = useNavigate();
+  const [date, setDate] = useState(new Date());
+  console.log(setDate)
   return (
     <div>
+      <div style={{display:"flex",flexWrap:"wrap",justifyContent:"flex-end",alignItems:"center",color:"red"}}>
+        <h5>Current Date: {date.toLocaleString()}</h5>
+      </div>
       <LineChart
         height={500}
         series={[
@@ -2785,7 +2791,7 @@ export default function EEEView() {
             area: true,
             stack: "total",
             showMark: false,
-          }
+          },
         ]}
         colors={[
           "red",
@@ -2797,14 +2803,14 @@ export default function EEEView() {
           "darkcyan",
           "darksalmon",
         ]}
-        xAxis={[{ scaleType: "point", data: xLabels,label:"Time"}]}
-        yAxis={[{label:"Predicted Day Ahead Demand Trend"}]}
+        xAxis={[{ scaleType: "point", data: xLabels, label: "Time" }]}
+        yAxis={[{ label: "Predicted Day Ahead Demand Trend" }]}
         sx={{
           ".MuiLineElement-root": {
             display: "none",
           },
-          border:4,
-          borderColor:"antiquewhite"
+          border: 4,
+          borderColor: "antiquewhite",
         }}
       />
       <br />
@@ -2814,14 +2820,14 @@ export default function EEEView() {
           flexWrap: "wrap",
           justifyContent: "flex-end",
           alignItems: "center",
-          gap:10
+          gap: 10,
         }}
       >
         <IconButton
           onClick={() => navigate("/eee-dept")}
           title="EEE Department Laboratories"
           size="large"
-          sx={{backgroundColor:"red"}}
+          sx={{ backgroundColor: "red" }}
         >
           <InfoIcon />
         </IconButton>
@@ -2829,25 +2835,55 @@ export default function EEEView() {
           onClick={() => navigate("/calculate")}
           title="Calculate"
           size="large"
-          sx={{backgroundColor:"brown"}}
+          sx={{ backgroundColor: "brown" }}
         >
-          <CalculateIcon/>
+          <CalculateIcon />
         </IconButton>
         <Button variant="contained" onClick={() => navigate(-1)}>
           Back
         </Button>
       </div>
-      <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",gap:20,marginTop:10}}>
-        <div style={{border:"3px solid red",width:370,padding:16,textAlign:"center"}}>
-          Estimated Consumption : 52 KWh/day <br/>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 20,
+          marginTop: 5,
+        }}
+      >
+        <div
+          style={{
+            border: "3px solid red",
+            width: 370,
+            padding: 16,
+            textAlign: "center",
+          }}
+        >
+          Estimated Consumption : 52 KWh/day <br />
           Actual Consumption : 50.38 KWh/day
         </div>
-        <div style={{border:"3px solid yellow",width:370,padding:16,textAlign:"center"}}>
-          Estimated Consumption Cost : 397.8 ₹/KWh <br/>
+        <div
+          style={{
+            border: "3px solid yellow",
+            width: 370,
+            padding: 16,
+            textAlign: "center",
+          }}
+        >
+          Estimated Consumption Cost : 397.8 ₹/KWh <br />
           Actual Consumption Cost : 385.407 ₹/KWh
         </div>
-        <div style={{border:"3px solid green",width:370,padding:16,textAlign:"center"}}>
-          Estimated Consumption Cost : 0.0016 Ξ/KWh <br/>
+        <div
+          style={{
+            border: "3px solid green",
+            width: 370,
+            padding: 16,
+            textAlign: "center",
+          }}
+        >
+          Estimated Consumption Cost : 0.0016 Ξ/KWh <br />
           Actual Consumption Cost : 0.0016 Ξ/KWh
         </div>
       </div>
