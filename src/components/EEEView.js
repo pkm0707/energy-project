@@ -2839,8 +2839,8 @@ export default function EEEView() {
       </div>
       <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",gap:20,marginTop:10}}>
         <div style={{border:"3px solid red",width:350,padding:16,textAlign:"center"}}>
-          Estimated Consumption : KWh <br/>
-          Actual Consumption : KWh
+          Estimated Consumption : 52 KWh/day <br/>
+          Actual Consumption : 50.38 KWh/day
         </div>
         <div style={{border:"3px solid yellow",width:350,padding:16,textAlign:"center"}}>
           Estimated Consumption Cost : ₹/KWh <br/>
