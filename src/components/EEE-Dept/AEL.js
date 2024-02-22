@@ -421,7 +421,6 @@ export function AEL() {
               scaleType: "band",
               label: "Time",
               data: [
-                "00:00",
                 "1:00",
                 "2:00",
                 "3:00",
@@ -435,6 +434,7 @@ export function AEL() {
                 "11:00",
                 "12:00",
                 "13:00",
+                "14:00",
               ],
             },
           ]}
@@ -463,8 +463,8 @@ export function AEL() {
           series={[
             {
               data: [
-                { id: 0, value: 50.38, label: "Total KWh" },
-                { id: 1, value: 9.687, label: "PE KWh" },
+                { id: 0, value: 50.38, label: "Total kWh" },
+                { id: 1, value: 9.687, label: "PE kWh" },
               ],
             },
           ]}
