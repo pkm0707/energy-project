@@ -42,8 +42,22 @@ import { PL } from "./components/EEE-Dept/PL";
 import { SAL } from "./components/EEE-Dept/SAL";
 import EEEView from "./components/EEEView";
 import { Calculate } from "./components/Calculate";
+import { GiTowerBridge } from "react-icons/gi";
+import { FcElectronics } from "react-icons/fc";
+import { SlChemistry } from "react-icons/sl";
+import { FaBuilding } from "react-icons/fa";
+import { FaComputer } from "react-icons/fa6";
+import { TbBusinessplan } from "react-icons/tb";
+import { GrPersonalComputer } from "react-icons/gr";
+import { GiMaterialsScience } from "react-icons/gi";
+import { RiEnglishInput } from "react-icons/ri";
+import { GrCloudComputer } from "react-icons/gr";
+import { TbMathSymbols } from "react-icons/tb"
+import { GiRobotGolem } from "react-icons/gi";
+import { GiMechanicalArm } from "react-icons/gi";
+import { GiSpeedometer } from "react-icons/gi";
 
-const drawerWidth = 240;
+const drawerWidth = 290;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -201,9 +215,163 @@ function App() {
                     }}
                   >
                     <ListItemIcon>
+                      <GiTowerBridge size={25} color="yellow" />
+                    </ListItemIcon>
+                    <ListItemText primary="Architecture" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <FaBuilding size={25} color="violet" />
+                    </ListItemIcon>
+                    <ListItemText primary="Civil" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <SlChemistry size={25} color="orange" />
+                    </ListItemIcon>
+                    <ListItemText primary="Chemistry" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <FaComputer size={25} color="#4BC58A" />
+                    </ListItemIcon>
+                    <ListItemText primary="CSE" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <TbBusinessplan size={25} color="#C4C54B" />
+                    </ListItemIcon>
+                    <ListItemText primary="CSBS" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <GrPersonalComputer size={25} color="#C5614B" />
+                    </ListItemIcon>
+                    <ListItemText primary="MCA" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <GiMaterialsScience size={25} color="#C54B5B" />
+                    </ListItemIcon>
+                    <ListItemText primary="AMCS" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <FcElectronics size={25}/>
+                    </ListItemIcon>
+                    <ListItemText primary="ECE" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
                       <GiElectric size={25} color="red" />
                     </ListItemIcon>
                     <ListItemText primary="EEE" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <RiEnglishInput size={25} color="#C54BB2" />
+                    </ListItemIcon>
+                    <ListItemText primary="English" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <GrCloudComputer size={25} color="#964BC5" />
+                    </ListItemIcon>
+                    <ListItemText primary="IT" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <TbMathSymbols size={25} color="#4B71C5" />
+                    </ListItemIcon>
+                    <ListItemText primary="Mathematics" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <GiMechanicalArm size={25} color="#72C54B" />
+                    </ListItemIcon>
+                    <ListItemText primary="Mechanical" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <GiRobotGolem size={25} color="#4BC598" />
+                    </ListItemIcon>
+                    <ListItemText primary="Mechatronics" />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => {
+                      navigate("/eee-view");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <GiSpeedometer size={25} color="#C11A24" />
+                    </ListItemIcon>
+                    <ListItemText primary="Physics" />
                   </ListItemButton>
                 </List>
               </Collapse>

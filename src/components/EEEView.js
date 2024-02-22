@@ -2730,8 +2730,8 @@ export default function EEEView() {
   console.log(setDate)
   return (
     <div>
-      <div style={{display:"flex",flexWrap:"wrap",justifyContent:"flex-end",alignItems:"center",color:"red"}}>
-        <h5>Current Date: {date.toLocaleString()}</h5>
+      <div style={{display:"flex",flexWrap:"wrap",justifyContent:"flex-end",alignItems:"center",marginBottom:15,color:"yellow"}}>
+        <h5>Current Date : {date.toLocaleString()}</h5>
       </div>
       <LineChart
         height={500}
@@ -2820,7 +2820,7 @@ export default function EEEView() {
           flexWrap: "wrap",
           justifyContent: "flex-end",
           alignItems: "center",
-          gap: 10,
+          gap: 20,
         }}
       >
         <IconButton
@@ -2839,7 +2839,7 @@ export default function EEEView() {
         >
           <CalculateIcon />
         </IconButton>
-        <Button variant="contained" onClick={() => navigate(-1)}>
+        <Button variant="contained" size="large" onClick={() => navigate(-1)}>
           Back
         </Button>
       </div>

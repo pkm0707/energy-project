@@ -336,20 +336,22 @@ export function AEL() {
     };
   });
   const [date, setDate] = useState(new Date());
-  console.log(setDate)
-  
+  console.log(setDate);
+
   return (
     <div>
+    <h2>Power Electronics Lab</h2>
       <div
         style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "flex-end",
           alignItems: "center",
-          color: "red",
+          marginBottom: 15,
+          color: "yellow",
         }}
       >
-        <h5>Current Date: {date.toLocaleString()}</h5>
+        <h5>Current Date : {date.toLocaleString()}</h5>
       </div>
       <div
         style={{

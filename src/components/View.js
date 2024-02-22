@@ -6,7 +6,6 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import Footer from "./Footer";
 import SpeedeDial from "./SpeedDial";
-
 export function View() {
   const navigate = useNavigate();
   const images = [
@@ -166,7 +165,7 @@ export function View() {
     transition: theme.transitions.create("opacity"),
   }));
   return (
-    <div>
+    <div className="view">
       <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",marginBottom:20}}>
         <img
           src="https://www.tce.edu/themes/gavias_edmix/logo.svg"
