@@ -2838,17 +2838,17 @@ export default function EEEView() {
         </Button>
       </div>
       <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",gap:20,marginTop:10}}>
-        <div style={{border:"3px solid red",width:350,padding:16,textAlign:"center"}}>
+        <div style={{border:"3px solid red",width:370,padding:16,textAlign:"center"}}>
           Estimated Consumption : 52 KWh/day <br/>
           Actual Consumption : 50.38 KWh/day
         </div>
-        <div style={{border:"3px solid yellow",width:350,padding:16,textAlign:"center"}}>
-          Estimated Consumption Cost : ₹/KWh <br/>
-          Actual Consumption Cost : ₹/KWh
+        <div style={{border:"3px solid yellow",width:370,padding:16,textAlign:"center"}}>
+          Estimated Consumption Cost : 397.8 ₹/KWh <br/>
+          Actual Consumption Cost : 385.407 ₹/KWh
         </div>
-        <div style={{border:"3px solid green",width:350,padding:16,textAlign:"center"}}>
-          Estimated Consumption Cost : Ξ/KWh <br/>
-          Actual Consumption Cost : Ξ/KWh
+        <div style={{border:"3px solid green",width:370,padding:16,textAlign:"center"}}>
+          Estimated Consumption Cost : 0.0016 Ξ/KWh <br/>
+          Actual Consumption Cost : 0.0016 Ξ/KWh
         </div>
       </div>
     </div>
