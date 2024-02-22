@@ -251,7 +251,7 @@ const xLabels = [
 export function getData() {
   return [
     ["Label", "Value"],
-    ["KWh", 9.687],
+    ["kWh", 9.687],
   ];
 }
 export function getData2() {
