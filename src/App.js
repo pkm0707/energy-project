@@ -197,7 +197,7 @@ function App() {
               sx={{ minWidth: 180, bgcolor: "background.paper" }}
               component="nav"
               aria-labelledby="nested-list-subheader"
-              title="Kids Fashion (available for both boys and girls)"
+              title="Departments"
             >
               <ListItemButton onClick={handleClickLaboratories}>
                 <ListItemIcon>
