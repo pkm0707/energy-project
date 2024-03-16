@@ -498,7 +498,7 @@ export function AEL() {
           href="https://metamask.io/"
           target="_blank"
           rel="noreferrer"
-          title="Pay for Applied Electronics Lab"
+          title="Pay for Power Electronics Lab"
         >
           <Button variant="contained">Make a Payment</Button>
         </a>
