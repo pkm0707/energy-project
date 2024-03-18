@@ -1,12 +1,13 @@
 import * as React from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { PieChart } from "@mui/x-charts/PieChart";
-import GaugeChart from "react-gauge-chart";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { PieChart } from "@mui/x-charts/PieChart";
+import { useState, useEffect } from "react";
+import { Chart } from "react-google-charts";
 
-const AEL_actual_values = [
+const CL_actual_values = [
   1.25, 0.72, 2.43, 5.31, 3.82, 1.45, 1.83, 5.7, 6.99, 7.36, 7.059999999999999,
   6.83, 6.72, 6.87, 6.889999999999999, 6.81, 6.69, 0.8700000000000001, 0.24,
   0.14, 9.19, 9.22, 9.24, 9.03, 8.78, 1.21, 0.18, 7.219999999999999, 7.21, 7.96,
@@ -26,7 +27,7 @@ const AEL_actual_values = [
   9.94, 9.79, 10.14, 9.6, 8.68, 8.1, 10.61, 11.01, 10.4, 10.6, 10.17, 10.34,
   10.07, 8.42, 9.59, 10.15, 10.01,
 ];
-const AEL_predicted_values = [
+const CL_predicted_values = [
   3.0748675, 2.2069516, 2.1665275, 2.7537687, 4.482818, 3.8905938, 2.2930794,
   2.5276506, 5.0904937, 6.2444525, 6.868273, 7.013033, 7.0123997, 6.792918,
   6.741348, 6.681676, 6.577971, 6.4489665, 3.0895057, 2.1801746, 1.7846195,
@@ -247,10 +248,111 @@ const xLabels = [
   "14:55:00",
 ];
 
+export function getData() {
+  return [
+    ["Label", "Value"],
+    ["kWh", 9.687],
+  ];
+}
+export function getData2() {
+  return [
+    ["Label", "Value"],
+    ["₹", 74.105],
+  ];
+}
+export function getData3() {
+  return [
+    ["Label", "Value"],
+    ["Ξ", 0.00031],
+  ];
+}
+export const options = {
+  width: 700,
+  height: 300,
+  redFrom: 20,
+  redTo: 25,
+  yellowFrom: 15,
+  yellowTo: 20,
+  greenFrom: 0,
+  greenTo: 15,
+  minorTicks: 5,
+  max: 25,
+};
+export const options2 = {
+  width: 700,
+  height: 300,
+  redFrom: 150,
+  redTo: 200,
+  yellowFrom: 100,
+  yellowTo: 150,
+  greenFrom: 0,
+  greenTo: 100,
+  minorTicks: 5,
+  max: 200,
+};
+export const options3 = {
+  width: 700,
+  height: 300,
+  redFrom: 0.00062,
+  redTo: 0.00082,
+  yellowFrom: 0.00041,
+  yellowTo: 0.00062,
+  greenFrom: 0,
+  greenTo: 0.00041,
+  minorTicks: 5,
+  max: 0.00082,
+};
+
 export function CL() {
   const navigate = useNavigate();
+  const [data, setData] = useState(getData);
+  const [data2, setData2] = useState(getData2);
+  const [data3, setData3] = useState(getData3);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setData(getData());
+    }, 3000);
+    return () => {
+      clearInterval(id);
+    };
+  });
+
+  useEffect(() => {
+    const id2 = setInterval(() => {
+      setData2(getData2());
+    }, 3000);
+    return () => {
+      clearInterval(id2);
+    };
+  });
+
+  useEffect(() => {
+    const id3 = setInterval(() => {
+      setData3(getData3());
+    }, 3000);
+    return () => {
+      clearInterval(id3);
+    };
+  });
+  const [date, setDate] = useState(new Date());
+  console.log(setDate);
+
   return (
     <div>
+    <h2>Power Electronics Lab</h2>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          marginBottom: 15,
+          color: "yellow",
+        }}
+      >
+        <h5>Current Date : {date.toLocaleString()}</h5>
+      </div>
       <div
         style={{
           display: "flex",
@@ -262,18 +364,18 @@ export function CL() {
         className="background"
       >
         <LineChart
-          width={1000}
+          width={700}
           height={300}
           series={[
             {
-              data: AEL_actual_values,
+              data: CL_actual_values,
               label: "Actual Values",
               area: true,
               stack: "total",
               showMark: false,
             },
             {
-              data: AEL_predicted_values,
+              data: CL_predicted_values,
               label: "Predicted Values",
               area: true,
               stack: "total",
@@ -289,28 +391,37 @@ export function CL() {
             },
             border: 4,
             borderColor: "antiquewhite",
+            fontWeight:10
           }}
         />
-        <GaugeChart
-          id="gauge-chart2"
-          nrOfLevels={20}
-          percent={1}
-          textColor="red"
-          style={{
-            width: 500,
-            border: "4px solid red",
-            height: 300,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
+
+        <div style={{ border: "3px solid antiquewhite" }}>
+          <Chart
+            chartType="Gauge"
+            width="100%"
+            height="300px"
+            data={data}
+            options={options}
+          />
+        </div>
+
+        <div style={{ border: "3px solid antiquewhite" }}>
+          <Chart
+            chartType="Gauge"
+            width="100%"
+            height="300px"
+            data={data2}
+            options={options2}
+          />
+        </div>
+
         <BarChart
+          yAxis={[{ label: "Cost(₹)" }]}
           xAxis={[
             {
               scaleType: "band",
+              label: "Time",
               data: [
-                "00:00",
                 "1:00",
                 "2:00",
                 "3:00",
@@ -325,68 +436,54 @@ export function CL() {
                 "12:00",
                 "13:00",
                 "14:00",
-                "15:00",
-                "16:00",
-                "17:00",
-                "18:00",
-                "19:00",
-                "20:00",
-                "21:00",
-                "22:00",
-                "23:00",
-                "24:00",
               ],
             },
           ]}
           series={[
             {
               data: [
-                4, 3, 5, 7, 2, 6, 8, 9, 10, 11, 2, 12, 4, 6, 8, 9, 3, 8, 1, 4,
-                5, 10, 9, 7, 3,
+                388.2375, 550.1115, 526.014, 433.602, 160.65, 668.9925, 828.342,
+                743.733, 732.87, 797.742, 790.6275, 797.13, 683.757, 922.8195,
               ],
             },
             {
               data: [
-                1, 6, 2, 6, 8, 9, 10, 11, 2, 12, 4, 3, 5, 7, 2, 6, 8, 9, 1, 5,
-                7, 8, 3, 2, 10,
-              ],
-            },
-          ]}
-          width={602}
-          height={300}
-          colors={["red","yellow"]}
-          sx={{ padding: 1, border: 4, borderColor: "darkgreen" }}
-        />
-        <PieChart
-          series={[
-            {
-              data: [
-                { id: 0, value: 10, label: "series A" },
-                { id: 1, value: 15, label: "series B" },
-                { id: 2, value: 20, label: "series C" },
+                570.3919338, 570.3384573, 524.3418921, 438.7181578, 369.8307271,
+                751.5896303, 790.9243368, 683.0942101, 746.2880457, 808.1353558,
+                829.0122548, 674.8377327, 866.3551216, 948.006207,
               ],
             },
           ]}
           width={500}
           height={300}
-          sx={{ padding: 1, border: 4, borderColor: "darkturquoise" }}
+          colors={["red", "yellow"]}
+          sx={{ padding: 1, border: 4, borderColor: "antiquewhite",color:"red" }}
         />
-        <GaugeChart
-          id="gauge-chart3"
-          nrOfLevels={30}
-          colors={["#FF5F6D", "#FFC371"]}
-          textColor="orange"
-          arcWidth={0.3}
-          percent={0.37}
-          style={{
-            width: 500,
-            border: "4px solid orange",
-            height: 300,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+
+        <PieChart
+          series={[
+            {
+              data: [
+                { id: 0, value: 50.38, label: "Total kWh" },
+                { id: 1, value: 9.687, label: "PE kWh" },
+              ],
+            },
+          ]}
+          width={500}
+          height={300}
+          sx={{ border: 3, padding: 2, borderColor: "antiquewhite" }}
+          colors={["#00A4CCFF", "#D6ED17FF"]}
         />
+
+        <div style={{ border: "3px solid antiquewhite" }}>
+          <Chart
+            chartType="Gauge"
+            width="100%"
+            height="300px"
+            data={data3}
+            options={options3}
+          />
+        </div>
       </div>
       <br />
       <div

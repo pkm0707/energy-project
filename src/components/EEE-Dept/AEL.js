@@ -391,6 +391,7 @@ export function AEL() {
             },
             border: 4,
             borderColor: "antiquewhite",
+            fontWeight:10
           }}
         />
 
@@ -453,10 +454,10 @@ export function AEL() {
               ],
             },
           ]}
-          width={700}
+          width={500}
           height={300}
           colors={["red", "yellow"]}
-          sx={{ padding: 1, border: 4, borderColor: "antiquewhite" }}
+          sx={{ padding: 1, border: 4, borderColor: "antiquewhite",color:"red" }}
         />
 
         <PieChart
