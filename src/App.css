@@ -1,0 +1,30 @@
+.typing-effect {
+    font-family: monospace;
+    white-space: nowrap; /* Prevents the text from wrapping */
+    overflow: hidden;    /* Ensures text is cut off when 'width' changes */
+    width: 0;            /* Initial width for the typing effect */
+    border-right: 2px solid black; /* Creates a cursor effect */
+    display: inline-block;
+    animation: typing 4s steps(20, end) infinite, blink-caret 0.5s step-end infinite;
+  }
+  
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 40ch; /* Adjust the number of characters to match your text length */
+    }
+    100% {
+      width: 0;
+    }
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }

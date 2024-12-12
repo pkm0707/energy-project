@@ -1,27 +1,72 @@
 import * as React from "react";
-import { BarChart } from "@mui/x-charts/BarChart";
+// import { BarChart } from "@mui/x-charts/BarChart";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { PieChart } from '@mui/x-charts/PieChart';
-import GaugeChart from "react-gauge-chart";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+export const data = [
+  ["City", "2010 Population", "2000 Population"],
+  ["New York City, NY", 8175000, 8008000],
+  ["Los Angeles, CA", 3792000, 3694000],
+  ["Chicago, IL", 2695000, 2896000],
+  ["Houston, TX", 2099000, 1953000],
+  ["Philadelphia, PA", 1526000, 1517000],
+];
+export const options = {
+  title: "Population of Largest U.S. Cities",
+  chartArea: { width: "50%" },
+  isStacked: true,
+  hAxis: {
+    title: "Total Population",
+    minValue: 0,
+  },
+  vAxis: {
+    title: "City",
+  },
+};
+const SOLAR_DATA = [
+  0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.04, 0.93, 1.71, 2.81, 3.69, 4.01, 4.01, 3.81,
+  3.29, 2.45, 1.54, 0.54, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+];
+const LOAD_DATA = [
+  0.20902099, 0.9694787, 2.5949316, 2.0929828, 4.0383596, 5.983044, 4.8616037,
+  32.26351, 29.336252, 30.558348, 28.68865, 38.623947, 44.833176, 44.096844,
+  53.82498, 60.94329, 2.3914952, 4.7612762, 1.6637243, 5.5601864, 2.9580417,
+  2.7206943, 5.0233016, 4.115013,
+];
 const xLabels = [
-  "Page A",
-  "Page B",
-  "Page C",
-  "Page D",
-  "Page E",
-  "Page F",
-  "Page G",
+  "00:00:00",
+  "01:00:00",
+  "02:00:00",
+  "03:00:00",
+  "04:00:00",
+  "05:00:00",
+  "06:00:00",
+  "07:00:00",
+  "08:00:00",
+  "09:00:00",
+  "10:00:00",
+  "11:00:00",
+  "12:00:00",
+  "13:00:00",
+  "14:00:00",
+  "15:00:00",
+  "16:00:00",
+  "17:00:00",
+  "18:00:00",
+  "19:00:00",
+  "20:00:00",
+  "21:00:00",
+  "22:00:00",
+  "23:00:00",
+  "24:00:00",
 ];
 
 export function PL() {
   const navigate = useNavigate();
   return (
     <div>
+      <h1 style={{textAlign:"center",color:"red",fontFamily:"fantasy"}}>DAY AHEAD ENERGY TREND</h1>
       <div
         style={{
           display: "flex",
@@ -33,113 +78,49 @@ export function PL() {
         className="background"
       >
         <LineChart
-          width={1000}
+          width={950}
           height={300}
           series={[
-            { data: pData, label: "pv" },
-            { data: uData, label: "uv" },
+            {
+              data: SOLAR_DATA,
+              label: "Forecasted Solar Trend",
+              area: true,
+              stack: "total",
+              showMark: false,
+            },
           ]}
-          xAxis={[{ scaleType: "point", data: xLabels }]}
-          colors={["red", "orange"]}
+          colors={["#2ecc71"]}
+          xAxis={[{ scaleType: "point", data: xLabels, label: "Hours" }]}
+          yAxis={[{ label: "Estimated Solar Power(kW)" }]}
           sx={{
-            padding: 1,
+            ".MuiLineElement-root": {
+              display: "none",
+            },
             border: 4,
-            borderColor: "darkmagenta",
+            borderColor: "antiquewhite",
           }}
         />
-        <GaugeChart
-          id="gauge-chart2"
-          nrOfLevels={20}
-          percent={1}
-          textColor="red"
-          style={{
-            width: 500,
-            border: "4px solid red",
-            height: 300,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
-        <BarChart
-          xAxis={[
-            {
-              scaleType: "band",
-              data: [
-                "12:00",
-                "1:00",
-                "2:00",
-                "3:00",
-                "4:00",
-                "5:00",
-                "6:00",
-                "7:00",
-                "8:00",
-                "9:00",
-                "10:00",
-                "11:00",
-                "12:00",
-                "13:00",
-                "14:00",
-                "15:00",
-                "16:00",
-                "17:00",
-                "18:00",
-                "19:00",
-                "20:00",
-                "21:00",
-                "22:00",
-                "23:00",
-                "24:00",
-              ],
-            },
-          ]}
+        <LineChart
+          width={950}
+          height={300}
           series={[
             {
-              data: [
-                4, 3, 5, 7, 2, 6, 8, 9, 10, 11, 2, 12, 4, 6, 8, 9, 3, 8, 1, 4,
-                5, 10, 9, 7, 3,
-              ],
-            },
-            {
-              data: [
-                1, 6, 2, 6, 8, 9, 10, 11, 2, 12, 4, 3, 5, 7, 2, 6, 8, 9, 1, 5,
-                7, 8, 3, 2, 10,
-              ],
+              data: LOAD_DATA,
+              label: "Forecasted Demand Trend",
+              area: true,
+              stack: "total",
+              showMark: false,
             },
           ]}
-          width={602}
-          height={300}
-          sx={{ padding: 1, border: 4, borderColor: "darkgreen" }}
-        />
-        <PieChart
-          series={[
-            {
-              data: [
-                { id: 0, value: 10, label: "series A" },
-                { id: 1, value: 15, label: "series B" },
-                { id: 2, value: 20, label: "series C" },
-              ],
+          colors={[ " #5499c7 " ]}
+          xAxis={[{ scaleType: "point", data: xLabels, label: "Hours" }]}
+          yAxis={[{ label: "Estimated Demand Trend (kW)" }]}
+          sx={{
+            ".MuiLineElement-root": {
+              display: "none",
             },
-          ]}
-          width={500}
-          height={300}
-          sx={{ padding: 1, border: 4, borderColor:"darkturquoise" }}
-        />
-        <GaugeChart
-          id="gauge-chart3"
-          nrOfLevels={30}
-          colors={["#FF5F6D", "#FFC371"]}
-          textColor="orange"
-          arcWidth={0.3}
-          percent={0.37}
-          style={{
-            width: 500,
-            border: "4px solid orange",
-            height: 300,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            border: 4,
+            borderColor: "antiquewhite",
           }}
         />
       </div>
@@ -157,7 +138,7 @@ export function PL() {
           href="https://metamask.io/"
           target="_blank"
           rel="noreferrer"
-          title="Pay for Project Lab"
+          title="Pay for Applied Electronics Lab"
         >
           <Button variant="contained">Make a Payment</Button>
         </a>
